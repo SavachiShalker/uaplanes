@@ -1,0 +1,11 @@
+services:
+  postgres:
+    image: postgres:15
+    container_name: uaplanes-db
+    environment:
+      POSTGRES_DB: uaplanes
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      PGTZ: UTC
+    ports:
+      - "5432:5432"
