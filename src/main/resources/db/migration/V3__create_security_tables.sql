@@ -19,9 +19,9 @@ CREATE TABLE users_roles (
 INSERT INTO roles (name) VALUES ('ROLE_ADMIN');
 INSERT INTO roles (name) VALUES ('ROLE_USER');
 
-INSERT INTO userINSERT INTO users (email, name, password, username) VALUES
-    ('admin@test.com', 'Admin', '$2a$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lhWy', 'admin'),
-    ('user@test.com', 'User', '$2a$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lhWy', 'user');
+INSERT INTO users (email, name, password, username) VALUES
+                                                        ('admin@test.com', 'Admin', '$2a$12$VFUIIwp/jTgEvntjIWwyYOXEXu8tZcL9y9JORQxrhzqbCYn0m4mny', 'admin'),
+                                                        ('user@test.com', 'User', '$2a$12$VFUIIwp/jTgEvntjIWwyYOXEXu8tZcL9y9JORQxrhzqbCYn0m4mny', 'user');
 
 INSERT INTO users_roles (user_id, role_id) VALUES (1, 1);
 INSERT INTO users_roles (user_id, role_id) VALUES (2, 2);

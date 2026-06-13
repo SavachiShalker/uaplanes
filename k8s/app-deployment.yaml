@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: uaplanes
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: uaplanes
+  template:
+    metadata:
+      labels:
+        app: uaplanes
+    spec:
+      containers:
+        - name: uaplanes
+          image: uaplanes:latest
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8080
+          env:
+            - name: SPRING_DATASOURCE_URL
+              value: jdbc:postgresql://postgres:5432/uaplanes?TimeZone=UTC
+            - name: SPRING_DATASOURCE_USERNAME
+              value: postgres
+            - name: SPRING_DATASOURCE_PASSWORD
+              value: postgres
+            - name: JAVA_TOOL_OPTIONS
+              value: -Duser.timezone=UTC
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: uaplanes
+spec:
+  selector:
+    app: uaplanes
+  type: NodePort
+  ports:
+    - port: 8080
+      targetPort: 8080
+      nodePort: 30080
